@@ -18,7 +18,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE ”далить»здели¤— омпонентамиЅольшеќдной—траны
+CREATE PROCEDURE УдалитьИзделияСКомпонентамиБольшеОднойСтраны
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -26,18 +26,18 @@ BEGIN
 	SET NOCOUNT ON;
 
 delete from
-издели¤
-where id_издели¤ in(
+изделия
+where id_изделия in(
 
-select id_издели¤
+select id_изделия
 from(
-select i.id_издели¤,
-		count(distinct ii.страна_изготовител¤) as [кол-во стран]
+select i.id_изделия,
+		count(distinct ii.страна_изготовителя) as [кол-во стран]
 		from издели¤ i
-		join компонент k on k.id_издели¤ = i.id_издели¤
+		join компонент k on k.id_издели¤ = i.id_изделия
 		join изготовитель ii on ii.id_изготовитель = k.id_изготовитель
-		group by i.id_издели¤
-		having count(distinct ii.страна_изготовител¤) > 1
+		group by i.id_изделия
+		having count(distinct ii.страна_изготовителя) > 1
 
 		) a
 		)
