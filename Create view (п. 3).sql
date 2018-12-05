@@ -1,0 +1,32 @@
+--create view СебестоимостьИзделия as
+--select i.id_изделия, i.тип, sum(k.стоимость) as Себестоимость
+--from изделия i
+--join компонент k on k.id_изделия = i.id_изделия
+--group by i.id_изделия, i.тип
+
+--create view БольшеВсегоКомпонентов as 
+--select top 1 i.id_изделия, i.тип, max([кол-во компонетов]) as [макс. кол-во]
+--from изделия i
+--join компонент k on k.id_изделия = i.id_изделия
+--join (
+--	select ii.id_изделия, ii.тип, count(*) as [кол-во компонетов]
+--	from изделия ii
+--	join компонент kk on kk.id_изделия = ii.id_изделия
+--	group by ii.id_изделия, ii.тип
+--) a on i.id_изделия = a.id_изделия
+--group by i.id_изделия, i.тип
+--order by [макс. кол-во] desc
+
+--create view СамыйПопулярныйКомпонент as
+--select top 1 k.наименование, max([кол-во изделий]) as [макс. кол-во]
+--from компонент k 
+--join изделия i on k.id_изделия = i.id_изделия
+--join (
+--	select kk.наименование, count(*) as [кол-во изделий]
+--	from компонент kk 
+--	join изделия ii on kk.id_изделия = ii.id_изделия
+--	group by kk.наименование
+--) a on k.наименование = a.наименование
+--group by k.наименование
+--order by [макс. кол-во] desc
+
