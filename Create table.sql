@@ -1,31 +1,31 @@
-create table изделия
+п»їcreate table РёР·РґРµР»РёСЏ
 (
-  id_изделия int not null primary key identity(1,1),
-  количество_дней_на_его_сборку int not null,
-  тип nvarchar(10) not null
+  id_РёР·РґРµР»РёСЏ int not null primary key identity(1,1),
+  РєРѕР»РёС‡РµСЃС‚РІРѕ_РґРЅРµР№_РЅР°_РµРіРѕ_СЃР±РѕСЂРєСѓ int not null,
+  С‚РёРї nvarchar(10) not null
 )
 
-create table продажа
+create table РїСЂРѕРґР°Р¶Р°
 (
-  id_продажа int not null primary key identity(1,1),
-  цена_продажи_некоторого_изделия money not null,
-  id_изделия int foreign key references изделия
+  id_РїСЂРѕРґР°Р¶Р° int not null primary key identity(1,1),
+  С†РµРЅР°_РїСЂРѕРґР°Р¶Рё_РЅРµРєРѕС‚РѕСЂРѕРіРѕ_РёР·РґРµР»РёСЏ money not null,
+  id_РёР·РґРµР»РёСЏ int foreign key references РёР·РґРµР»РёСЏ
 )
 
-create table изготовитель
+create table РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ
 (
-  id_изготовитель int not null primary key identity(1,1),
-  страна_изготовителя varchar(10) not null
+  id_РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ int not null primary key identity(1,1),
+  СЃС‚СЂР°РЅР°_РёР·РіРѕС‚РѕРІРёС‚РµР»СЏ varchar(10) not null
 )
 
-create table компонент 
+create table РєРѕРјРїРѕРЅРµРЅС‚ 
 (
-  id_компонент int not null primary key identity(1,1),
-  наименование nvarchar(10) not null,
-  тип nvarchar(10) not null,
-  стоимость money not null,
-  количество nvarchar(10) not null,
-  id_изделия int foreign key references изделия,
-  id_изготовитель int foreign key references изготовитель
+  id_РєРѕРјРїРѕРЅРµРЅС‚ int not null primary key identity(1,1),
+  РЅР°РёРјРµРЅРѕРІР°РЅРёРµ nvarchar(10) not null,
+  С‚РёРї nvarchar(10) not null,
+  СЃС‚РѕРёРјРѕСЃС‚СЊ money not null,
+  РєРѕР»РёС‡РµСЃС‚РІРѕ nvarchar(10) not null,
+  id_РёР·РґРµР»РёСЏ int foreign key references РёР·РґРµР»РёСЏ,
+  id_РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ int foreign key references РёР·РіРѕС‚РѕРІРёС‚РµР»СЊ
 )
   

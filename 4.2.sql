@@ -1,4 +1,4 @@
--- ================================================
+п»ї-- ================================================
 -- Template generated from Template Explorer using:
 -- Create Scalar Function (New Menu).SQL
 --
@@ -18,20 +18,20 @@ GO
 -- Create date: <Create Date, ,>
 -- Description:	<Description, ,>
 -- =============================================
-CREATE FUNCTION НаименьшееКоличествоДнейНаСборку
+CREATE FUNCTION РЊР°РёРјРµРЅСЊС€РµРµВ РѕР»РёС‡РµСЃС‚РІРѕЖ’РЅРµР№РЊР°вЂ”Р±РѕСЂРєСѓ
 (
 )
 RETURNS nvarchar(20)
 AS
 BEGIN
 	-- Return the result of the function
-	RETURN (select top 1 [тип]--, avg([количество_дней_на_его_сборку]) as avg_days
-			from изделия
-			group by [тип]
-			order by avg([количество_дней_на_его_сборку])
+	RETURN (select top 1 [С‚РёРї]--, avg([РєРѕР»РёС‡РµСЃС‚РІРѕ_РґРЅРµР№_РЅР°_РµРіРѕ_СЃР±РѕСЂРєСѓ]) as avg_days
+			from РёР·РґРµР»РёВ¤
+			group by [С‚РёРї]
+			order by avg([РєРѕР»РёС‡РµСЃС‚РІРѕ_РґРЅРµР№_РЅР°_РµРіРѕ_СЃР±РѕСЂРєСѓ])
 			)
 
 END
 GO
 
---select [dbo].[НаименьшееКоличествоДнейНаСборку]()
+--select [dbo].[РЊР°РёРјРµРЅСЊС€РµРµВ РѕР»РёС‡РµСЃС‚РІРѕЖ’РЅРµР№РЊР°вЂ”Р±РѕСЂРєСѓ]()
